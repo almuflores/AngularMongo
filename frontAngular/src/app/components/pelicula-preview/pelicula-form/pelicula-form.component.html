@@ -1,0 +1,25 @@
+<div class="col-lg-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            Añadir una película nueva a la cartelera
+        </div>
+        <div class="card-body">
+            <form (submit)="uploadPelicula(title, description)">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Título de la película" #title required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="2" class="form-control" placeholder="Resumen de la película" required #description></textarea>
+                </div>
+                <h6>Haga click para añadir el cartel de la película</h6>
+                <input type="file" class="d-none" (change)="onPeliculaSelected($event)" #peliculaInput>
+                <img [src]="peliculaSelected || 'assets/no-image.png'" class="img-fluid" alt="No image"
+                    (click)="peliculaInput.click()">
+
+                <button class="btn btn-primary btn-block">
+                    Subir
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
